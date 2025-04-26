@@ -1,7 +1,6 @@
 # NOVA
 
-Thank you for purchasing NOVA!
-
+ 
 ## Getting Started
 
 1. **Install dependencies:**
