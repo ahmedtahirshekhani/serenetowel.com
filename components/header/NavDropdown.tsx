@@ -109,8 +109,10 @@ export default function NavDropdown({
     item: "block py-1.5 px-3 text-white/70 hover:text-white hover:bg-white/5 rounded-lg transition-colors active:bg-white/15"
   } : {
     wrapper: "relative",
-    button: "flex items-center gap-1 text-white/80 hover:text-white transition-colors py-2 px-1 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/70 text-sm lg:text-base",
+    // headings default to dark, hover to white
+    button: "flex items-center gap-1 text-black/75 hover:text-white transition-colors py-2 px-1 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/70 text-sm lg:text-base",
     content: "absolute top-full left-0 mt-1 w-64 bg-black/90 border border-white/10 rounded-xl overflow-hidden backdrop-blur-xl shadow-xl p-3 animate-fadeIn",
+    // base desktop item - color will be applied conditionally when rendering
     item: "flex items-center px-4 py-2.5 hover:bg-white/10 rounded-lg transition-colors"
   }
   
@@ -143,15 +145,33 @@ export default function NavDropdown({
           ref={dropdownRef}
           className={mobileStyles.content}
         >
-          {items.map((item) => (
-            <Link
-              key={item}
-              href="#"
-              className={mobileStyles.item}
-            >
-              <span className={cn("font-medium", "text-sm")}>{item}</span>
-            </Link>
-          ))}
+          {items.map((item) => {
+            const isProduct = label.toLowerCase() === "products" || label.toLowerCase().includes("product")
+
+            // Determine item classes for mobile vs desktop and for product vs others
+            let itemClass = mobileStyles.item
+            if (isMobile) {
+              // mobile menu: product items stay white, others black with hover->white
+              itemClass = isProduct
+                ? mobileStyles.item // mobileStyles.item already uses text-white/70 for mobile
+                : "block py-1.5 px-3 text-black hover:text-white hover:bg-white/5 rounded-lg transition-colors active:bg-white/15"
+            } else {
+              // desktop: base item plus color
+              itemClass = isProduct
+                ? `${mobileStyles.item} text-white`
+                : `${mobileStyles.item} text-black hover:text-white`
+            }
+
+            return (
+              <Link
+                key={item}
+                href="#"
+                className={itemClass}
+              >
+                <span className={cn("font-medium", "text-sm")}>{item}</span>
+              </Link>
+            )
+          })}
         </div>
       )}
     </div>

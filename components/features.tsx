@@ -2,6 +2,13 @@
 
 import { useState, useEffect } from "react"
 import { motion } from "framer-motion"
+import { Playfair_Display } from "next/font/google"
+
+const playfair = Playfair_Display({
+  weight: ["400", "700", "900"],
+  subsets: ["latin"],
+  display: "swap",
+})
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Zap, Users, Shield, BarChart3 } from "lucide-react"
 import { useIsMobile } from "@/hooks/use-mobile"
@@ -116,112 +123,36 @@ export default function ModernFeatures() {
   }
 
   return (
-    <section id="features" className="py-12 px-4 sm:py-16 md:py-24 bg-black relative">
-      {/* Background elements */}
-      <div className="absolute inset-0 z-0">
-        <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-red-500/10 rounded-full blur-[100px]"></div>
-        <div className="absolute bottom-0 left-0 w-1/3 h-1/3 bg-amber-500/10 rounded-full blur-[100px]"></div>
-      </div>
-
-      <div className="container mx-auto relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-8 sm:mb-12"
-        >
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3">Powerful Features</h2>
-          <p className="text-sm sm:text-base md:text-lg text-white/70 max-w-2xl mx-auto">
-            Everything you need to streamline your workflow
-          </p>
-        </motion.div>
-
-        <Tabs defaultValue="analytics" value={activeTab} onValueChange={handleTabChange} className="w-full">
-          <div className="flex justify-center mb-6 sm:mb-8 overflow-x-auto pb-3 sm:pb-0 scrollbar-hide">
-            <TabsList className="bg-white/5 backdrop-blur-sm border border-white/10 p-1 rounded-xl flex-nowrap">
-              {features.map((feature) => (
-                <TabsTrigger
-                  key={feature.id}
-                  value={feature.id}
-                  className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-red-500 data-[state=active]:to-amber-500 data-[state=active]:text-white rounded-lg p-2 sm:px-3 sm:py-1.5 whitespace-nowrap"
-                >
-                  <div className="flex items-center gap-1.5 sm:gap-2">
-                    <span className="flex items-center justify-center">{feature.icon}</span>
-                    <span className="hidden sm:inline text-sm md:text-base">{feature.title}</span>
-                  </div>
-                </TabsTrigger>
-              ))}
-            </TabsList>
+    <section id="aboutus" className="py-12 px-4 sm:py-16 md:py-24 bg-[#f6f4ee]">
+      <div className="container mx-auto">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-4 gap-8 items-center">
+          {/* Left images - two tall placeholders side-by-side on large screens */}
+          <div className="lg:col-span-2 flex flex-col lg:flex-row gap-6">
+            <div className="flex-1 h-[520px] bg-gray-200 rounded-md overflow-hidden">
+              <img src="/placeholder-left-1.jpg" alt="placeholder" className="w-full h-full object-cover" />
+            </div>
+            <div className="flex-1 h-[520px] bg-gray-200 rounded-md overflow-hidden">
+              <img src="/placeholder-left-2.jpg" alt="placeholder" className="w-full h-full object-cover" />
+            </div>
           </div>
 
-          {/* Mobile feature title display - only visible on mobile */}
-          <div className="sm:hidden text-center mb-4">
-            <h3 className="text-lg font-bold">{features.find(f => f.id === activeTab)?.title}</h3>
+          {/* Right text block spanning two columns on large screens */}
+          <div className="lg:col-span-2">
+            <div className="max-w-[560px] mx-auto lg:mx-0">
+              <h3 className="font-sans font-normal text-[48px] text-[#1C1C1C] mb-4">About Us</h3>
+
+              <h2 className="font-[700] text-[32px] text-black leading-tight mb-2 tracking-[-0.02em]" style={{ fontFamily: '"Times New Roman", Times, serif' }}>Experience Luxury &amp; Comfort with Serene Towel</h2> <br />
+
+              <h4 className={`${playfair.className} font-[400] text-[17px] text-[#2E2E2E] mb-4`}>Towels Designed For Tranquility</h4>
+
+              <p className="font-sans font-normal text-[16px] text-[#5A5A5A] mb-6 leading-[1.6]">Serene Towel is at the forefront of disrupting the towel manufacturing industry. True to our name, our mission is to offer luxurious, comfortable, and tranquil terry products tailored to our customers’ preferences.</p>
+
+              <div className="mt-6">
+                <a href="#contactus" className="inline-block bg-[#1997B7] text-white font-semibold text-[16px] rounded-[8px] px-[30px] py-[12px] shadow-sm hover:opacity-95">Contact Us</a>
+              </div>
+            </div>
           </div>
-
-          <div style={contentStyle} className="relative">
-            {features.map((feature) => (
-              <TabsContent
-                key={feature.id}
-                value={feature.id}
-                className="focus-visible:outline-none focus-visible:ring-0 scroll-mt-20 absolute top-0 left-0 w-full transition-opacity"
-              >
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 items-center">
-                  <motion.div
-                    initial={{ opacity: 0, x: -30 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.5 }}
-                  >
-                    {/* Image shown first on mobile and a simpler feature display */}
-                    <div className="relative order-first mb-4 md:hidden min-h-[185px]">
-                      <div className="absolute -inset-1 bg-gradient-to-r from-red-500 to-amber-500 rounded-2xl blur-md opacity-70"></div>
-                      <div className="relative bg-black/80 backdrop-blur-sm border border-white/10 rounded-xl overflow-hidden p-1">
-                        <img
-                          src={feature.image || "/placeholder.svg"}
-                          alt={feature.title}
-                          className="w-full h-auto rounded-lg"
-                           
-                        />
-                      </div>
-                    </div>
-                    
-                    <p className="text-white/70 text-sm sm:text-base mb-4 mt-8 sm:mb-6">{feature.description}</p>
-
-                    {/* More simplified list for mobile */}
-                    <ul className="space-y-2 sm:space-y-3">
-                      {feature.benefits.slice(0, 3).map((benefit, index) => (
-                        <li key={index} className="flex items-center gap-2 text-sm sm:text-base">
-                          <div className="h-4 w-4 sm:h-5 sm:w-5 rounded-full bg-gradient-to-r from-red-500 to-amber-500 flex items-center justify-center text-xs font-bold">
-                            ✓
-                          </div>
-                          <span>{benefit}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </motion.div>
-
-                  {/* Desktop image view */}
-                  <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 0.5 }}
-                    className="relative hidden md:block"
-                  >
-                    <div className="absolute -inset-1 bg-gradient-to-r from-red-500 to-amber-500 rounded-2xl blur-lg opacity-70"></div>
-                    <div className="relative bg-black/80 backdrop-blur-sm border border-white/10 rounded-xl overflow-hidden p-1 ">
-                      <img
-                        src={feature.image || "/placeholder.svg"}
-                        alt={feature.title} 
-                        className="w-full h-auto rounded-lg"
-                      />
-                    </div>
-                  </motion.div>
-                </div>
-              </TabsContent>
-            ))}
-          </div>
-        </Tabs>
+        </div>
       </div>
     </section>
   )

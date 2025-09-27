@@ -89,30 +89,19 @@ function LazyLoad({ children }: { children: React.ReactNode }) {
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-black px-0 sm:px-4 text-white">
+    <div className="min-h-screen bg-white px-0 sm:px-4 text-black">
       <ScrollRestoration />
       <Hero />
-      <LazyLoad>
-        <SocialProof />
-      </LazyLoad>
-      <LazyLoad>
-        <HowItWorks />
-      </LazyLoad>
+     
       <LazyLoad>
         <Features />
       </LazyLoad>
-      <LazyLoad>
-        <Integrations />
-      </LazyLoad>
-      <LazyLoad>
-        <Testimonials />
-      </LazyLoad>
+      
+      
       <LazyLoad>
         <BlogPreview />
       </LazyLoad>
-      <LazyLoad>
-        <Pricing />
-      </LazyLoad>
+      
       <LazyLoad>
         <FaqSection />
       </LazyLoad>

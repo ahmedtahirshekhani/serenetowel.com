@@ -37,7 +37,9 @@ export default function ModernHeader() {
     <header
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300 h-[60px] flex items-center",
-        scrolled ? "bg-black/80 backdrop-blur-lg shadow-lg shadow-black/20 border-b border-white/10" : "bg-transparent"
+        scrolled
+          ? "bg-white/75 backdrop-blur-lg shadow-lg shadow-black/10 border-b border-black/10 text-black"
+          : "bg-white/40 backdrop-blur-sm text-black"
       )}
     >
       <div className="container mx-auto px-4 flex items-center justify-between">
