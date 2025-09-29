@@ -51,6 +51,9 @@ const config = {
           DEFAULT: "hsl(var(--card) / <alpha-value>)",
           foreground: "hsl(var(--card-foreground) / <alpha-value>)",
         },
+         fontFamily: {
+    sans: ["Plus Jakarta Sans", "Arial", "Helvetica", "sans-serif"] as any,
+  },
       },
       borderRadius: {
         lg: "var(--radius)",
