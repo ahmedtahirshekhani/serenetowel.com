@@ -49,13 +49,14 @@ export default function DesktopNav() {
           About Us
         </Link>
 
-        <Link 
-          href="#contactus" 
-          className="text-black/75 hover:text-white transition-colors py-2 px-1 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/70 text-sm lg:text-base"
-          onMouseEnter={() => setActiveDropdown(null)}
-        >
-          Contact Us
-        </Link>
+          <a
+            href="https://drive.google.com/file/d/1G9F58alUGoYh2_81rW_pyy1sj6EGdHeI/view?usp=sharing"
+            target="_blank"
+            rel="noopener noreferrer"
+             className="text-black/75 hover:text-white transition-colors py-2 px-1 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/70 text-sm lg:text-base"
+          >
+            Our Catalogue
+          </a>
       </nav>
 
       {/* right-side controls intentionally removed — navigation links live in the main nav */}

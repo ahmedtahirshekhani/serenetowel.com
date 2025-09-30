@@ -148,7 +148,7 @@ export default function ModernFeatures() {
               <p className="font-sans font-normal text-[16px] text-[#5A5A5A] mb-6 leading-[1.6]">Serene Towel is at the forefront of disrupting the towel manufacturing industry. True to our name, our mission is to offer luxurious, comfortable, and tranquil terry products tailored to our customers’ preferences.</p>
 
               <div className="mt-6">
-                <a href="#contactus" className="inline-block bg-[#1997B7] text-white font-semibold text-[16px] rounded-[8px] px-[30px] py-[12px] shadow-sm hover:opacity-95">Contact Us</a>
+                <a href="#ourvalues" className="inline-block bg-[#1997B7] text-white font-semibold text-[16px] rounded-[8px] px-[30px] py-[12px] shadow-sm hover:opacity-95">Our Values</a>
               </div>
             </div>
           </div>

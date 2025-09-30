@@ -19,7 +19,7 @@ export default function FaqSection() {
             rel="noopener noreferrer"
             className="inline-block bg-[#1ba6cf] text-white rounded-lg px-8 py-3 shadow-sm hover:opacity-95 transition-colors"
           >
-            Contact Us
+            Our Catalogue
           </a>
         </div>
       </div>

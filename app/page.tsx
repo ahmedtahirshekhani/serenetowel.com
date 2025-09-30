@@ -92,6 +92,9 @@ export default function Home() {
     <div className="min-h-screen bg-white px-0 sm:px-4 text-black">
       <ScrollRestoration />
       <Hero />
+      <LazyLoad>
+        <HowItWorks />
+      </LazyLoad>
      
       <LazyLoad>
         <Features />
@@ -106,7 +109,13 @@ export default function Home() {
         <FaqSection />
       </LazyLoad>
       <LazyLoad>
+        <Integrations />
+      </LazyLoad>
+      <LazyLoad>
         <Cta />
+      </LazyLoad>
+      <LazyLoad>
+        <Testimonials />
       </LazyLoad>
     </div>
   );
