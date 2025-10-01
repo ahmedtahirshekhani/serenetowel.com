@@ -129,10 +129,10 @@ export default function ModernFeatures() {
           {/* Left images - two tall placeholders side-by-side on large screens */}
           <div className="lg:col-span-2 flex flex-col lg:flex-row gap-6">
             <div className="flex-1 h-[520px] bg-gray-200 rounded-md overflow-hidden">
-              <img src="/placeholder-left-1.jpg" alt="placeholder" className="w-full h-full object-cover" />
+              <img src="/images/aboutus1.png" alt="placeholder" className="w-full h-full object-cover" />
             </div>
             <div className="flex-1 h-[520px] bg-gray-200 rounded-md overflow-hidden">
-              <img src="/placeholder-left-2.jpg" alt="placeholder" className="w-full h-full object-cover" />
+              <img src="/images/aboutus2.png" alt="placeholder" className="w-full h-full object-cover" />
             </div>
           </div>
 

@@ -9,7 +9,7 @@ export default function ProductsSection() {
     {
       name: "Towels",
       id: "towels", // ✅ anchor id
-      image: "/images/products/towels.jpg",
+      image: "/images/towels.png",
       description: (
         <>
           <p className="mb-4">
@@ -37,18 +37,18 @@ export default function ProductsSection() {
           {/* Two image placeholders */}
           <div className="grid grid-cols-2 gap-4 mt-6">
             <Image
-              src="/placeholder.jpg"
+              src="/images/towels1.png"
               alt="Towel Placeholder 1"
               width={400}
               height={300}
-              className="rounded-lg object-cover w-full h-40"
+              className="rounded-lg object-cover w-full h-80"
             />
             <Image
-              src="/placeholder.jpg"
+              src="/images/towels2.png"
               alt="Towel Placeholder 2"
               width={400}
               height={300}
-              className="rounded-lg object-cover w-full h-40"
+              className="rounded-lg object-cover w-full h-80"
             />
           </div>
         </>
@@ -57,7 +57,7 @@ export default function ProductsSection() {
     {
       name: "Bathrobes",
       id: "bathrobes", // ✅ anchor id
-      image: "/images/products/bathrobes.jpg",
+      image: "/images/bathrobes.png",
       description: (
         <>
           <h4 className="font-semibold italic mb-2">
@@ -90,18 +90,18 @@ export default function ProductsSection() {
           {/* Two image placeholders */}
           <div className="grid grid-cols-2 gap-4 mt-6">
             <Image
-              src="/placeholder.jpg"
+              src="/images/bathrobes1.png"
               alt="Bathrobe Placeholder 1"
               width={400}
               height={300}
-              className="rounded-lg object-cover w-full h-40"
+              className="rounded-lg object-cover w-full h-80"
             />
             <Image
-              src="/placeholder.jpg"
+              src="/images/bathrobes2.png"
               alt="Bathrobe Placeholder 2"
               width={400}
               height={300}
-              className="rounded-lg object-cover w-full h-40"
+              className="rounded-lg object-cover w-full h-80"
             />
           </div>
         </>
@@ -110,7 +110,7 @@ export default function ProductsSection() {
     {
       name: "Bath Mats",
       id: "bath-mats", // ✅ anchor id
-      image: "/images/products/bathmats.jpg",
+      image: "/images/bathmats.png",
       description: (
         <>
           <h4 className="font-semibold italic mb-2">
@@ -135,18 +135,18 @@ export default function ProductsSection() {
           {/* Two image placeholders */}
           <div className="grid grid-cols-2 gap-4 mt-6">
             <Image
-              src="/placeholder.jpg"
+              src="/images/bathmats1.png"
               alt="Bath Mat Placeholder 1"
               width={400}
               height={300}
-              className="rounded-lg object-cover w-full h-40"
+              className="rounded-lg object-cover w-full h-80"
             />
             <Image
-              src="/placeholder.jpg"
+              src="/images/bathmats2.png"
               alt="Bath Mat Placeholder 2"
               width={400}
               height={300}
-              className="rounded-lg object-cover w-full h-40"
+              className="rounded-lg object-cover w-full h-80"
             />
           </div>
         </>
@@ -155,7 +155,7 @@ export default function ProductsSection() {
     {
       name: "Made-ups",
       id: "made-ups", // ✅ anchor id
-      image: "/images/products/madeups.jpg",
+      image: "/images/madeups.png",
       description: (
         <>
           <h4 className="font-semibold italic mb-2">
@@ -180,18 +180,18 @@ export default function ProductsSection() {
           {/* Two image placeholders */}
           <div className="grid grid-cols-2 gap-4 mt-6">
             <Image
-              src="/placeholder.jpg"
+              src="/images/madeups1.png"
               alt="Made-ups Placeholder 1"
               width={400}
               height={300}
-              className="rounded-lg object-cover w-full h-40"
+              className="rounded-lg object-cover w-full h-80"
             />
             <Image
-              src="/placeholder.jpg"
+              src="/images/madeups2.png"
               alt="Made-ups Placeholder 2"
               width={400}
               height={300}
-              className="rounded-lg object-cover w-full h-40"
+              className="rounded-lg object-cover w-full h-80"
             />
           </div>
         </>
