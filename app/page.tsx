@@ -45,9 +45,6 @@ const Testimonials = dynamic(() => import("@/components/testimonials"), {
   ssr: false,
 });
 
-const Pricing = dynamic(() => import("@/components/pricing"), {
-  ssr: false,
-});
 
 const Integrations = dynamic(() => import("@/components/integrations"), {
   ssr: false,

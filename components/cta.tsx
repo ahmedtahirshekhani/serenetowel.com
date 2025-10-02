@@ -18,7 +18,10 @@ export default function ModernCta() {
           </div>
 
           <div className="shrink-0">
-            <button className="bg-[#1ba6cf] text-white rounded-lg px-6 py-3 shadow-md hover:opacity-95 contactus-btn">
+            <button 
+              id="contactus" 
+              className="bg-[#1ba6cf] text-white rounded-lg px-6 py-3 shadow-md hover:opacity-95"
+            >
               Contact Us
             </button>
           </div>
