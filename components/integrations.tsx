@@ -2,6 +2,12 @@
 
 import { motion } from "framer-motion"
 import { Lightbulb, HeartHandshake, Clock, Gem } from "lucide-react"
+import { Plus_Jakarta_Sans } from "next/font/google"
+
+const plusJakartaSans = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
+})
 
 export default function OurValues() {
   const values = [
@@ -32,7 +38,7 @@ export default function OurValues() {
   ]
 
   return (
-    <section className="py-20 bg-white relative overflow-hidden">
+    <section className={`py-20 bg-white relative overflow-hidden ${plusJakartaSans.className}`}>
       <div className="container mx-auto px-6 relative z-10">
         {/* Heading */}
         <motion.div
@@ -42,12 +48,12 @@ export default function OurValues() {
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-         <h2
-          id="ourvalues"
-          className="text-3xl md:text-4xl font-bold font-sans"
-        >
-          Our Values
-        </h2>
+          <h2
+            id="ourvalues"
+            className="text-3xl md:text-4xl font-bold"
+          >
+            Our Values
+          </h2>
         </motion.div>
 
         {/* Grid */}
@@ -67,7 +73,7 @@ export default function OurValues() {
               </div>
 
               {/* Title */}
-              <h3 className="text-xl font-semibold mb-4 font-sans min-h-[56px] flex items-center">
+              <h3 className="text-xl font-semibold mb-4 min-h-[56px] flex items-center">
                 {value.title}
               </h3>
 
