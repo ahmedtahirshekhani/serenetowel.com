@@ -3,12 +3,19 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
+import { Plus_Jakarta_Sans } from "next/font/google";
+
+
+const plusJakartaSans = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
+});
 
 export default function ProductsSection() {
   const products = [
     {
       name: "Towels",
-      id: "towels", // ✅ anchor id
+      id: "towels",
       image: "/images/towels.png",
       description: (
         <>
@@ -33,8 +40,6 @@ export default function ProductsSection() {
             options to ultra-soft, highly absorbent cotton ranges, we ensure
             that every product combines functionality with elegance.
           </p>
-
-          {/* Two image placeholders */}
           <div className="grid grid-cols-2 gap-4 mt-6">
             <Image
               src="/images/towels1.png"
@@ -56,7 +61,7 @@ export default function ProductsSection() {
     },
     {
       name: "Bathrobes",
-      id: "bathrobes", // ✅ anchor id
+      id: "bathrobes",
       image: "/images/bathrobes.png",
       description: (
         <>
@@ -86,8 +91,6 @@ export default function ProductsSection() {
             innovative and eco-friendly approaches, making luxury both
             responsible and renewable.
           </p>
-
-          {/* Two image placeholders */}
           <div className="grid grid-cols-2 gap-4 mt-6">
             <Image
               src="/images/bathrobes1.png"
@@ -109,7 +112,7 @@ export default function ProductsSection() {
     },
     {
       name: "Bath Mats",
-      id: "bath-mats", // ✅ anchor id
+      id: "bath-mats",
       image: "/images/bathmats.png",
       description: (
         <>
@@ -131,8 +134,6 @@ export default function ProductsSection() {
             countless journeys, helping create luxurious and lasting experiences
             for customers worldwide.
           </p>
-
-          {/* Two image placeholders */}
           <div className="grid grid-cols-2 gap-4 mt-6">
             <Image
               src="/images/bathmats1.png"
@@ -154,7 +155,7 @@ export default function ProductsSection() {
     },
     {
       name: "Made-ups",
-      id: "made-ups", // ✅ anchor id
+      id: "made-ups",
       image: "/images/madeups.png",
       description: (
         <>
@@ -176,8 +177,6 @@ export default function ProductsSection() {
             institutions, our made-ups are tailored to deliver a touch of luxury
             and a long-lasting experience of serenity.
           </p>
-
-          {/* Two image placeholders */}
           <div className="grid grid-cols-2 gap-4 mt-6">
             <Image
               src="/images/madeups1.png"
@@ -201,12 +200,10 @@ export default function ProductsSection() {
 
   const [selected, setSelected] = useState<number | null>(null);
 
-  // ✅ Open accordion if hash in URL matches a product ID
   useEffect(() => {
     const handleHashChange = () => {
       const hash = window.location.hash.replace("#", "");
       if (!hash) return;
-
       const index = products.findIndex((p) => p.id === hash);
       if (index !== -1) {
         setSelected(index);
@@ -214,14 +211,13 @@ export default function ProductsSection() {
       }
     };
 
-    handleHashChange(); // run on mount
+    handleHashChange();
     window.addEventListener("hashchange", handleHashChange);
-
     return () => window.removeEventListener("hashchange", handleHashChange);
   }, [products]);
 
   return (
-    <section className="py-16 bg-gray-50 relative">
+    <section className={`py-16 bg-gray-50 relative ${plusJakartaSans.className}`}>
       <div className="container mx-auto px-4">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
           Our Products
@@ -232,7 +228,7 @@ export default function ProductsSection() {
           {products.map((product, index) => (
             <div
               key={index}
-              id={product.id} // ✅ anchor id here
+              id={product.id}
               className="relative cursor-pointer group"
               onClick={() => setSelected(index)}
             >
@@ -266,12 +262,9 @@ export default function ProductsSection() {
               <h3 className="text-xl md:text-2xl font-bold mb-4">
                 {products[selected].name}
               </h3>
-
-              {/* Render description */}
               <div className="text-gray-700 leading-relaxed">
                 {products[selected].description}
               </div>
-
               <button
                 onClick={() => setSelected(null)}
                 className="mt-6 px-4 py-2 rounded-lg bg-gray-900 text-white hover:bg-gray-700 transition"
