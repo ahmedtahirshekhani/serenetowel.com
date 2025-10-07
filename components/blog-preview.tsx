@@ -33,94 +33,84 @@ export default function OurProcess() {
 
   return (
     <section
-      className="py-16 md:py-24 bg-[#f6f4ee] relative overflow-hidden"
+      className="relative py-16 md:py-24 bg-gradient-to-b from-[#f7f5ee] via-[#fffdf7] to-[#f7f5ee] overflow-hidden"
       aria-labelledby="process-heading"
     >
-      {/* Background blurred accents */}
-      <div className="absolute inset-0 z-0" aria-hidden="true">
-        <div className="absolute bottom-0 left-0 w-1/3 h-1/3 bg-amber-500/10 rounded-full blur-[120px]" />
-        <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-red-500/10 rounded-full blur-[120px]" />
+      {/* Decorative flowing background lines */}
+      <div className="absolute inset-0 overflow-hidden z-0 pointer-events-none">
+        <svg
+          className="absolute top-0 left-1/2 -translate-x-1/2 opacity-10 w-[120%] h-auto"
+          viewBox="0 0 1440 800"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M0,200 C300,400 800,0 1440,300 L1440,0 L0,0 Z"
+            fill="#EAD7A4"
+          />
+          <path
+            d="M0,400 C400,600 900,200 1440,500 L1440,0 L0,0 Z"
+            fill="#F7EFD0"
+          />
+        </svg>
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
-        {/* Section heading */}
         <motion.div
           initial={{ opacity: 0, y: 8 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.45 }}
-          className="mb-12"
+          className="mb-12 text-center"
         >
           <h3
             id="process-heading"
-            className="text-2xl md:text-3xl font-semibold text-[#1C1C1C]"
+            className="text-3xl md:text-4xl font-bold text-[#1C1C1C]"
           >
             Our Process
           </h3>
         </motion.div>
 
-        <div className="max-w-6xl mx-auto relative">
-          {/* Guidelines (curves) */}
-          <svg
-            className="pointer-events-none absolute inset-0 hidden lg:block z-0"
-            viewBox="0 0 1000 1250"
-            preserveAspectRatio="none"
-            aria-hidden="true"
-          >
-            <path
-              d="M700 120 C 850 50, 900 200, 500 350 S 100 600, 500 700 S 900 950, 450 1220"
-              stroke="#D9DAA8"
-              strokeWidth="3"
-              fill="none"
-              strokeLinecap="round"
-            />
-          </svg>
+        <div className="max-w-6xl mx-auto space-y-20 md:space-y-32 relative">
+          {steps.map((step) => (
+            <motion.div
+              key={step.id}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: step.id * 0.06 }}
+              className={`flex flex-col items-center gap-10 md:gap-16 ${
+                step.id % 2 === 0 ? "lg:flex-row-reverse" : "lg:flex-row"
+              }`}
+            >
+              {/* Text Section */}
+              <div className="w-full lg:w-1/2 text-center lg:text-left px-2">
+                <h4 className="text-lg md:text-xl font-semibold text-[#1C1C1C] mb-3">
+                  {step.id}. {step.title}
+                </h4>
+                <p className="text-base text-[#5A5A5A] leading-7">
+                  {step.text}
+                </p>
+              </div>
 
-          {/* Steps */}
-          <div className="space-y-32 relative z-10">
-            {steps.map((step) => (
-              <motion.div
-                key={step.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: step.id * 0.06 }}
-                className="w-full"
-              >
-                <div
-                  className={`flex flex-col lg:flex-row items-center gap-10 ${
-                    step.id === 2 || step.id === 4
-                      ? "lg:flex-row-reverse"
-                      : ""
-                  }`}
-                >
-                  {/* Text */}
-                  <div className="lg:w-1/2">
-                    <h4 className="text-lg font-semibold text-[#1C1C1C] mb-3">
-                      0{step.id} {step.title}
-                    </h4>
-                    <p className="text-base text-[#5A5A5A] leading-7">
-                      {step.text}
-                    </p>
-                  </div>
-
-                  {/* Image */}
-                  <div className="lg:w-1/2 flex justify-center lg:justify-end relative z-20">
-                    <div className="w-full max-w-[600px] aspect-[16/9] rounded-lg overflow-hidden shadow-md relative">
-                      <Image
-                        src={step.img}
-                        alt={step.title}
-                        fill
-                        className="object-cover"
-                      />
-                    </div>
-                  </div>
+              {/* Image Section */}
+              <div className="w-full lg:w-1/2 flex justify-center">
+                <div className="relative w-full max-w-[420px] aspect-[4/3] rounded-2xl overflow-hidden shadow-[0_4px_30px_rgba(0,0,0,0.08)] border border-[#f0eede] bg-white">
+                  <Image
+                    src={step.img}
+                    alt={step.title}
+                    fill
+                    className="object-cover w-full h-full rounded-2xl transition-transform duration-700 hover:scale-105"
+                  />
                 </div>
-              </motion.div>
-            ))}
-          </div>
+              </div>
+            </motion.div>
+          ))}
         </div>
       </div>
+
+      {/* Soft divider for mobile end fade */}
+      <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-[#f6f4ee] to-transparent pointer-events-none" />
     </section>
   )
 }

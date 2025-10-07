@@ -86,7 +86,7 @@ export default function NavDropdown({
     wrapper: "border-b border-white/10 pb-2",
     button: "flex items-center justify-between w-full py-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/70 rounded-md px-2",
     content: "pl-2 mt-1 space-y-0.5 animate-fadeIn",
-    item: "block py-1.5 px-3 text-white/70 hover:text-white hover:bg-white/5 rounded-lg transition-colors active:bg-white/15"
+    item: "block py-1.5 px-3 text-black/70 hover:text-white hover:bg-white/5 rounded-lg transition-colors active:bg-white/15"
   } : {
     wrapper: "relative",
     button: "flex items-center gap-1 text-black/75 hover:text-white transition-colors py-2 px-1 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/70 text-sm lg:text-base",
@@ -101,7 +101,7 @@ export default function NavDropdown({
 
   return (
     <div 
-      className={cn(mobileStyles.wrapper, className)} 
+      className={cn(mobileStyles.wrapper, className ) } 
       onMouseEnter={isMobile ? undefined : handleMouseEnter}
       onMouseLeave={isMobile ? undefined : handleMouseLeave}
     >
