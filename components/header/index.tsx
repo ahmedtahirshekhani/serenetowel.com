@@ -53,12 +53,12 @@ export default function ModernHeader() {
         <Button 
           variant="ghost" 
           size="icon" 
-          className="md:hidden text-white focus-visible:ring-2 focus-visible:ring-amber-500/70 h-9 w-9" 
+          className="md:hidden text-black focus-visible:ring-2 focus-visible:ring-amber-500/70 h-9 w-9" 
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           aria-expanded={isMenuOpen}
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
         >
-          {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          {isMenuOpen ? <X className="h-5 w-5 " /> : <Menu className="h-5 w-5" />}
         </Button>
       </div>
 

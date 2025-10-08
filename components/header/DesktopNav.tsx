@@ -39,7 +39,6 @@ export default function DesktopNav() {
           setActiveDropdown={handleActiveDropdown}
         />
         
-        {/* Catalogue button moved to the right-side control area */}
 
         <Link 
           href="#aboutus" 

@@ -90,12 +90,13 @@ export default function Home() {
       <ScrollRestoration />
       <Hero />
       <LazyLoad>
+        <Features />
+      </LazyLoad>
+      <LazyLoad>
         <HowItWorks />
       </LazyLoad>
      
-      <LazyLoad>
-        <Features />
-      </LazyLoad>
+      
       
       
       <LazyLoad>

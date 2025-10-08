@@ -6,7 +6,7 @@ import { Plus_Jakarta_Sans } from "next/font/google"
 
 const plusJakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"], // adjust as needed
+  weight: ["400", "500", "600", "700"],
 })
 
 export default function ModernFooter() {
@@ -15,11 +15,10 @@ export default function ModernFooter() {
       className={`${plusJakarta.className} bg-[hsl(0,0%,10%)] border-t border-[hsl(210,9%,46%)] py-8 sm:py-16 px-3 sm:px-6 lg:px-8 text-white`}
     >
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-          
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center md:text-left">
           {/* Logo + Slogan */}
-          <div>
-            <Link href="/" className="flex items-center gap-2 mb-6">
+          <div className="flex flex-col items-center md:items-start">
+            <Link href="/" className="flex items-center justify-center md:justify-start gap-2 mb-6">
               <Image
                 src="/serene towel.png"
                 alt="Serene Towels Logo"
@@ -35,7 +34,7 @@ export default function ModernFooter() {
           </div>
 
           {/* Column 2: Quick Links */}
-          <div>
+          <div className="flex flex-col items-center md:items-start">
             <h3 className="text-lg font-bold mb-2 underline underline-offset-4">
               Quick Links
             </h3>
@@ -68,7 +67,7 @@ export default function ModernFooter() {
           </div>
 
           {/* Column 3: Reach Us Out & Address */}
-          <div>
+          <div className="flex flex-col items-center md:items-start">
             <h3 className="text-lg font-bold mb-2 underline underline-offset-4">
               Reach Us Out
             </h3>
@@ -96,9 +95,16 @@ export default function ModernFooter() {
         </div>
 
         {/* Footer Bottom */}
-        <div className="mt-16 pt-8 border-t border-[hsla(212, 7%, 62%, 1.00)] flex flex-col md:flex-row justify-between items-center">
-          <p className="text-[hsla(225, 5%, 55%, 1.00)] text-sm mb-4 md:mb-0">
-            © {new Date().getFullYear()} serenetowel.com Powered By Trilents
+        <div className="mt-16 pt-8 border-t border-[hsla(212, 7%, 62%, 1.00)] flex flex-col md:flex-row justify-center md:justify-between items-center text-center">
+          <p className="text-[hsla(225, 5%, 55%, 1.00)] text-sm">
+            © {new Date().getFullYear()} serenetowel.com Powered By{" "}
+            <Link
+              href="https://www.trilents.com"
+              target="_blank"
+              className="text-[hsl(195,100%,49%)] hover:underline font-semibold"
+            >
+              Trilents
+            </Link>
           </p>
         </div>
       </div>
