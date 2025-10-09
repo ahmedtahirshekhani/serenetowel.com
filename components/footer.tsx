@@ -20,7 +20,7 @@ export default function ModernFooter() {
           <div className="flex flex-col items-center md:items-start">
             <Link href="/" className="flex items-center justify-center md:justify-start gap-2 mb-6">
               <Image
-                src="/serene towel.png"
+                src="/logo.png"
                 alt="Serene Towels Logo"
                 width={200}
                 height={100}

@@ -195,22 +195,22 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Custom scrollbar */
+/* Custom scrollbar matching theme */
 ::-webkit-scrollbar {
   width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: rgba(0, 0, 0, 0.2);
+  background: hsl(var(--muted)); /* use muted background for track */
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(239, 68, 68, 0.5);
+  background: hsl(var(--primary) / 0.7); /* primary color for thumb */
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(239, 68, 68, 0.8);
+  background: hsl(var(--primary) / 1); /* full opacity on hover */
 }
 
 /* Gradient border */

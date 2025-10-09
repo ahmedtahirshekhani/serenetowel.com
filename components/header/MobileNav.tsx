@@ -7,11 +7,17 @@ import { cn } from "@/lib/utils"
 
 type MobileNavProps = {
   isOpen: boolean
+  onClose?: () => void // optional to prevent runtime errors
 }
 
-export default function MobileNav({ isOpen }: MobileNavProps) {
+export default function MobileNav({ isOpen, onClose }: MobileNavProps) {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null)
   const productItems = ["Towels", "Bathrobes", "Bath Mats", "Made-ups"]
+
+  const handleClose = () => {
+    setActiveDropdown(null)
+    if (onClose) onClose() // safe call
+  }
 
   return (
     <div
@@ -34,13 +40,14 @@ export default function MobileNav({ isOpen }: MobileNavProps) {
           isMobile={true}
           activeDropdown={activeDropdown}
           setActiveDropdown={setActiveDropdown}
+          onItemClick={handleClose} // close mobile menu when dropdown item clicked
         />
 
         {/* About Us */}
         <Link
           href="#aboutus"
           className="py-2 px-2 border-b border-black/10 hover:bg-black/5 rounded-md transition-colors active:bg-black/10 text-black"
-          onClick={() => setActiveDropdown(null)}
+          onClick={handleClose}
         >
           About Us
         </Link>
@@ -51,16 +58,20 @@ export default function MobileNav({ isOpen }: MobileNavProps) {
           target="_blank"
           rel="noopener noreferrer"
           className="py-2 px-2 border-b border-black/10 hover:bg-black/5 rounded-md transition-colors active:bg-black/10 text-black"
-          onClick={() => setActiveDropdown(null)}
+          onClick={handleClose}
         >
           Our Catalogue
         </a>
-        <button 
-              id="contactus" 
-              className="text-black/75 hover:text-white transition-colors py-2 px-1 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/70 text-sm lg:text-base"
-            >
-              Contact Us
-            </button>
+
+       {/* Contact Us */}
+        <button
+          id="contactus"
+          onClick={handleClose}
+          className="block w-full text-left py-2 px-2 border-b border-black/10 hover:bg-black/5 rounded-md transition-colors active:bg-black/10 text-black font-medium text-sm lg:text-base"
+        >
+          Contact Us
+        </button>
+
       </div>
     </div>
   )

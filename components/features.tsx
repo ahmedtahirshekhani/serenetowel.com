@@ -27,6 +27,7 @@ export default function ModernFeatures() {
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-4 gap-8 items-center">
           {/* Left images */}
           <div className="lg:col-span-2 flex flex-col lg:flex-row gap-6 items-center justify-center">
+            {/* First image — always visible */}
             <div className="flex-1 max-w-[400px] h-[380px] sm:h-[450px] lg:h-[520px] bg-gray-200 rounded-md overflow-hidden">
               <img
                 src="/images/aboutus1.png"
@@ -34,7 +35,9 @@ export default function ModernFeatures() {
                 className="w-full h-full object-cover"
               />
             </div>
-            <div className="flex-1 max-w-[400px] h-[380px] sm:h-[450px] lg:h-[520px] bg-gray-200 rounded-md overflow-hidden">
+
+            {/* Second image — hidden on mobile */}
+            <div className="hidden sm:flex flex-1 max-w-[400px] h-[380px] sm:h-[450px] lg:h-[520px] bg-gray-200 rounded-md overflow-hidden">
               <img
                 src="/images/aboutus2.png"
                 alt="placeholder"

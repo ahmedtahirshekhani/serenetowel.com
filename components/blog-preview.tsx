@@ -37,23 +37,7 @@ export default function OurProcess() {
       aria-labelledby="process-heading"
     >
       {/* Decorative flowing background lines */}
-      <div className="absolute inset-0 overflow-hidden z-0 pointer-events-none">
-        <svg
-          className="absolute top-0 left-1/2 -translate-x-1/2 opacity-10 w-[120%] h-auto"
-          viewBox="0 0 1440 800"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M0,200 C300,400 800,0 1440,300 L1440,0 L0,0 Z"
-            fill="#EAD7A4"
-          />
-          <path
-            d="M0,400 C400,600 900,200 1440,500 L1440,0 L0,0 Z"
-            fill="#F7EFD0"
-          />
-        </svg>
-      </div>
+      <div className="max-w-6xl mx-auto relative"> <svg className="pointer-events-none absolute inset-0 hidden lg:block z-0" viewBox="0 0 1000 1250" preserveAspectRatio="none" aria-hidden="true" > <path d="M700 120 C 850 50, 900 200, 500 350 S 100 600, 500 700 S 950 950, 380 1240" stroke="#D9DAA8" strokeWidth="3" fill="none" strokeLinecap="round" /> </svg>
 
       <div className="container mx-auto px-4 relative z-10">
         <motion.div
@@ -70,6 +54,7 @@ export default function OurProcess() {
             Our Process
           </h3>
         </motion.div>
+        
 
         <div className="max-w-6xl mx-auto space-y-20 md:space-y-32 relative">
           {steps.map((step) => (
@@ -111,6 +96,7 @@ export default function OurProcess() {
 
       {/* Soft divider for mobile end fade */}
       <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-[#f6f4ee] to-transparent pointer-events-none" />
+    </div>
     </section>
   )
 }

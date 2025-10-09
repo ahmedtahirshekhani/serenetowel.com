@@ -63,7 +63,10 @@ export default function ModernHeader() {
       </div>
 
       {/* Mobile Menu */}
-      <MobileNav isOpen={isMenuOpen} />
+     <MobileNav
+  isOpen={isMenuOpen}
+  onClose={() => setIsMenuOpen(false)} // ✅ pass this!
+/>
     </header>
   )
 }
