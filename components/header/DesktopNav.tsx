@@ -49,7 +49,7 @@ export default function DesktopNav() {
         </Link>
 
           <a
-            href="https://drive.google.com/file/d/1G9F58alUGoYh2_81rW_pyy1sj6EGdHeI/view?usp=sharing"
+            href="https://drive.google.com/file/d/1QHf4oQegt5GRyZ5_uLbnnUMkZ91oqeWW/view?usp=sharing"
             target="_blank"
             rel="noopener noreferrer"
              className="text-black/75 hover:text-white transition-colors py-2 px-1 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/70 text-sm lg:text-base"
