@@ -38,7 +38,9 @@ export default function OurValues() {
   ]
 
   return (
-    <section className={`py-20 bg-white relative overflow-hidden ${plusJakartaSans.className}`}>
+    <section
+      className={`py-20 bg-white relative overflow-hidden ${plusJakartaSans.className}`}
+    >
       <div className="container mx-auto px-6 relative z-10">
         {/* Heading */}
         <motion.div
@@ -48,16 +50,13 @@ export default function OurValues() {
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          <h2
-            id="ourvalues"
-            className="text-3xl md:text-4xl font-bold"
-          >
+          <h2 id="ourvalues" className="text-3xl md:text-4xl font-bold">
             Our Values
           </h2>
         </motion.div>
 
-        {/* Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        {/* Grid — show 2 per row on mobile */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
           {values.map((value, index) => (
             <motion.div
               key={index}
@@ -65,20 +64,20 @@ export default function OurValues() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.3, delay: index * 0.1 }}
-              className="flex flex-col items-center text-center p-8 bg-white rounded-xl shadow-lg h-full"
+              className="flex flex-col items-center text-center p-6 sm:p-8 bg-white rounded-xl shadow-lg h-full"
             >
               {/* Icon */}
-              <div className="text-red-700 mb-6 flex items-center justify-center w-20 h-20 rounded-full bg-red-50 shadow-md">
-                <value.icon className="w-10 h-10" />
+              <div className="mb-6 flex items-center justify-center w-20 h-20 rounded-full bg-[#E0F4FA] shadow-md">
+                <value.icon className="w-10 h-10 text-[#1997B7]" />
               </div>
 
               {/* Title */}
-              <h3 className="text-xl font-semibold mb-4 min-h-[56px] flex items-center">
+              <h3 className="text-lg sm:text-xl font-semibold mb-3 min-h-[56px] flex items-center">
                 {value.title}
               </h3>
 
               {/* Description */}
-              <p className="text-gray-600 text-base leading-relaxed flex-1">
+              <p className="text-gray-600 text-sm sm:text-base leading-relaxed flex-1">
                 {value.description}
               </p>
             </motion.div>

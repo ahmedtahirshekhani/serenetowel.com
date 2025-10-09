@@ -5,7 +5,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { Plus_Jakarta_Sans } from "next/font/google";
 
-
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700", "800"],
@@ -20,7 +19,7 @@ export default function ProductsSection() {
       description: (
         <>
           <p className="mb-4">
-            Serene Towels stands among the leading exporters of terry products
+            Serene Towel stands among the leading exporters of terry products
             from Pakistan to international markets. We specialize in crafting
             premium-quality towels and lightweight healthcare textiles, serving
             a diverse global clientele. Our products are trusted by renowned
@@ -34,7 +33,7 @@ export default function ProductsSection() {
             reliable and high-standard products.
           </p>
           <p>
-            With a dedicated in-house design team, Serene Towels launches fresh
+            With a dedicated in-house design team, Serene Towel launches fresh
             collections every year, introducing innovative designs aligned with
             evolving consumer preferences. From sustainable and eco-conscious
             options to ultra-soft, highly absorbent cotton ranges, we ensure
@@ -69,7 +68,7 @@ export default function ProductsSection() {
             Comfortable, Cozy, and Cotton-Carefree
           </h4>
           <p className="mb-4">
-            Serene Towels is recognized as one of Pakistan’s premier bathrobe
+            Serene Towel is recognized as one of Pakistan’s premier bathrobe
             manufacturers, delivering superior craftsmanship through advanced
             production processes and a fully integrated setup that guarantees
             excellence in every piece.
@@ -120,7 +119,7 @@ export default function ProductsSection() {
             Step into Comfort, Step into Luxury
           </h4>
           <p className="mb-4">
-            For over 35 years, Hasham Towel has been a trusted name in the home
+            For over 35 years, Serene Towel has been a trusted name in the home
             textile industry, leading the way in innovative bath mat designs and
             uncompromising quality.
           </p>
@@ -130,7 +129,7 @@ export default function ProductsSection() {
             piece.
           </p>
           <p>
-            From households to hospitality, Hasham Towel continues to be part of
+            From households to hospitality, Serene Towel continues to be part of
             countless journeys, helping create luxurious and lasting experiences
             for customers worldwide.
           </p>
@@ -163,7 +162,7 @@ export default function ProductsSection() {
             Softness That Lasts, Elegance That Defines
           </h4>
           <p className="mb-4">
-            Serene Towels presents a refined collection of <b>Terry Made-ups</b>,
+            Serene Towel presents a refined collection of <b>Terry Made-ups</b>,
             designed to bring together the comfort of premium cotton and the
             excellence of skilled craftsmanship. Our range includes bed sheets,
             pillow covers, cushion covers, and other home essentials—each woven
@@ -200,24 +199,39 @@ export default function ProductsSection() {
 
   const [selected, setSelected] = useState<number | null>(null);
 
+  // handle URL hash changes (for nav links)
   useEffect(() => {
     const handleHashChange = () => {
-      const hash = window.location.hash.replace("#", "");
+      const hash = window.location.hash.slice(1);
       if (!hash) return;
+
       const index = products.findIndex((p) => p.id === hash);
-      if (index !== -1) {
+      if (index !== -1 && index !== selected) {
         setSelected(index);
-        document.getElementById(hash)?.scrollIntoView({ behavior: "smooth" });
+        document.getElementById(hash)?.scrollIntoView({
+          behavior: "smooth",
+          block: "center",
+        });
       }
     };
 
     handleHashChange();
     window.addEventListener("hashchange", handleHashChange);
     return () => window.removeEventListener("hashchange", handleHashChange);
-  }, [products]);
+  }, [products, selected]);
+
+  const openProduct = (index: number) => {
+    // Only update if different product clicked
+    if (selected !== index) {
+      setSelected(index);
+      window.location.hash = products[index].id;
+    }
+  };
 
   return (
-    <section className={`py-16 bg-gray-50 relative ${plusJakartaSans.className}`}>
+    <section
+      className={`py-16 bg-gray-50 relative ${plusJakartaSans.className}`}
+    >
       <div className="container mx-auto px-4">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
           Our Products
@@ -230,7 +244,7 @@ export default function ProductsSection() {
               key={index}
               id={product.id}
               className="relative cursor-pointer group"
-              onClick={() => setSelected(index)}
+              onClick={() => openProduct(index)}
             >
               <Image
                 src={product.image}
@@ -253,10 +267,10 @@ export default function ProductsSection() {
           {selected !== null && (
             <motion.div
               key={selected}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: 30 }}
-              transition={{ duration: 0.4 }}
+              exit={{ opacity: 0, y: 20 }}
+              transition={{ duration: 0.3 }}
               className="mt-10 bg-white rounded-xl shadow-lg p-6 md:p-8 max-w-4xl mx-auto border border-gray-200"
             >
               <h3 className="text-xl md:text-2xl font-bold mb-4">
@@ -266,7 +280,10 @@ export default function ProductsSection() {
                 {products[selected].description}
               </div>
               <button
-                onClick={() => setSelected(null)}
+                onClick={() => {
+                  setSelected(null);
+                  history.replaceState(null, "", " ");
+                }}
                 className="mt-6 px-4 py-2 rounded-lg bg-gray-900 text-white hover:bg-gray-700 transition"
               >
                 Close

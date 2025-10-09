@@ -21,7 +21,7 @@ export default function FaqSection() {
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto text-center">
           <a
-            href="https://drive.google.com/file/d/1G9F58alUGoYh2_81rW_pyy1sj6EGdHeI/view?usp=sharing"
+            href="https://drive.google.com/file/d/1QHf4oQegt5GRyZ5_uLbnnUMkZ91oqeWW/view?usp=sharing"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block bg-[#1ba6cf] text-white rounded-lg px-8 py-3 shadow-sm hover:opacity-95 transition-colors font-semibold"

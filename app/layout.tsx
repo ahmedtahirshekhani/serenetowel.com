@@ -12,12 +12,12 @@ export const metadata: Metadata = {
   title: "Serene Towel - Innovations in Textile Art",
   description:
     "Serene Towel is a premium exporter of terry products, bath textiles, and made-ups. Comfort, elegance, and sustainable craftsmanship for global markets.",
-  icons: "/favicon-96x96.png",
+  icons: "/fav icon.png",
   openGraph: {
     title: "Serene Towel - Innovations in Textile Art",
     description:
       "Discover premium towels, bathrobes, bath mats, and terry made-ups crafted by Serene Towel for homes, hotels and healthcare worldwide.",
-    images: ["/favicon-96x96.png"],
+    images: ["/logo.png"],
     type: "website",
   },
 }
