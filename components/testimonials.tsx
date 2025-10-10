@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 export default function ContactModal() {
   const [isOpen, setIsOpen] = useState(false);
 
-  // Listen for clicks on ANY button with id="contactus"
+  // Attach event listeners for buttons with id="contactus"
   useEffect(() => {
     const btns = document.querySelectorAll<HTMLElement>("#contactus");
     const open = () => setIsOpen(true);
@@ -17,6 +17,16 @@ export default function ContactModal() {
     };
   }, []);
 
+  // Disable background scroll when modal is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+  }, [isOpen]);
+
+  // Form state
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -40,27 +50,34 @@ export default function ContactModal() {
   return (
     <>
       {isOpen && (
-        <div className="fixed inset-0 bg-black/50 flex justify-center items-center z-50">
-          <div className="bg-white rounded-lg shadow-lg w-full max-w-3xl p-8 relative">
-            {/* Close button */}
+        <div
+          className="fixed inset-0 bg-black/50 flex justify-center items-center z-50 p-4"
+          onClick={() => setIsOpen(false)}
+        >
+          <div
+            className="bg-white rounded-lg shadow-lg w-full max-w-3xl p-4 relative 
+                       sm:max-h-[90vh] sm:overflow-y-auto"
+            onClick={(e) => e.stopPropagation()} // prevent closing when clicking inside
+          >
+            {/* Close Button */}
             <button
               onClick={() => setIsOpen(false)}
-              className="absolute top-4 right-4 text-gray-500 hover:text-[#a67c52] text-xl"
+              className="absolute top-6 right-6 text-gray-500 hover:text-[#a67c52] text-xl"
             >
               ✕
             </button>
 
-            <div className="grid md:grid-cols-2 gap-12">
-              {/* Contact info */}
+            <div className="grid md:grid-cols-2 gap-2">
+              {/* Contact Info */}
               <div>
-                <h2 className="text-3xl font-bold mb-4 text-[#a67c52]">
+                <h2 className="text-3xl font-bold mb-2 text-[#a67c52]">
                   Get in Touch
                 </h2>
-                <p className="text-gray-600 mb-6">
+                <p className="text-gray-600 mb-4">
                   Reach out via form or directly with the details below.
                 </p>
 
-                <ul className="space-y-4 text-gray-700">
+                <ul className="space-y-2 text-gray-700 text-sm sm:text-base">
                   <li>
                     <strong>📍 Address:</strong> Plot R-890, Sector 20-A,
                     Gulzar-e-Hijri, Karachi, Pakistan.
@@ -86,9 +103,9 @@ export default function ContactModal() {
                 </ul>
               </div>
 
-              {/* Form */}
+              {/* Contact Form */}
               <div>
-                <form onSubmit={handleSubmit} className="space-y-4">
+                <form onSubmit={handleSubmit} className="space-y-2">
                   <div className="grid grid-cols-2 gap-4">
                     <input
                       type="text"
@@ -109,6 +126,7 @@ export default function ContactModal() {
                       required
                     />
                   </div>
+
                   <input
                     type="text"
                     name="phone"
@@ -117,6 +135,7 @@ export default function ContactModal() {
                     onChange={handleChange}
                     className="w-full p-3 border border-[#a67c52] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#a67c52]"
                   />
+
                   <input
                     type="text"
                     name="subject"
@@ -125,15 +144,17 @@ export default function ContactModal() {
                     onChange={handleChange}
                     className="w-full p-3 border border-[#a67c52] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#a67c52]"
                   />
+
                   <textarea
                     name="message"
                     placeholder="Your message..."
-                    rows={5}
+                    rows={4}
                     value={form.message}
                     onChange={handleChange}
                     className="w-full p-3 border border-[#a67c52] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#a67c52]"
                     required
                   />
+
                   <button
                     type="submit"
                     className="bg-[#a67c52] text-white px-6 py-3 rounded-lg hover:bg-[#8b623e] transition w-full"
