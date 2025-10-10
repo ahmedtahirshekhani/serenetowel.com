@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils"
 
 type MobileNavProps = {
   isOpen: boolean
-  onClose?: () => void // optional to prevent runtime errors
+  onClose?: () => void
 }
 
 export default function MobileNav({ isOpen, onClose }: MobileNavProps) {
@@ -16,22 +16,24 @@ export default function MobileNav({ isOpen, onClose }: MobileNavProps) {
 
   const handleClose = () => {
     setActiveDropdown(null)
-    if (onClose) onClose() // safe call
+    if (onClose) onClose()
   }
 
   return (
-   <div
-  className={cn(
-    "md:hidden absolute left-0 right-0 top-[60px] bg-white/95 backdrop-blur-lg border-t border-black/10 transition-all duration-300 z-40",
-    isOpen ? "opacity-100 visible" : "opacity-0 invisible"
-  )}
-  style={{ pointerEvents: isOpen ? "auto" : "none" }}
->
-
+    <div
+      className={cn(
+        "md:hidden absolute left-0 right-0 top-[60px] border-t border-black/10 transition-all duration-300 z-40 bg-white/95 backdrop-blur-lg shadow-md",
+        isOpen
+          ? "opacity-100 visible translate-y-0"
+          : "opacity-0 invisible -translate-y-4"
+      )}
+      style={{
+        pointerEvents: isOpen ? "auto" : "none",
+      }}
+    >
       <div
         className={cn(
-          "container mx-auto px-3 py-4 flex flex-col gap-2 transition-all duration-300 overflow-y-auto",
-          isOpen ? "translate-y-0" : "-translate-y-4"
+          "container mx-auto px-3 py-4 flex flex-col gap-2 transition-all duration-300"
         )}
       >
         {/* Products Dropdown */}
@@ -42,13 +44,13 @@ export default function MobileNav({ isOpen, onClose }: MobileNavProps) {
           isMobile={true}
           activeDropdown={activeDropdown}
           setActiveDropdown={setActiveDropdown}
-          onItemClick={handleClose} // close mobile menu when dropdown item clicked
+          onItemClick={handleClose}
         />
 
         {/* About Us */}
         <Link
           href="#aboutus"
-          className="py-2 px-2 border-b border-black/10 hover:bg-black/5 rounded-md transition-colors active:bg-black/10 text-black"
+          className="py-2 px-2 border-b border-black/10 hover:bg-black/5 rounded-md text-black transition-colors"
           onClick={handleClose}
         >
           About Us
@@ -59,21 +61,20 @@ export default function MobileNav({ isOpen, onClose }: MobileNavProps) {
           href="https://drive.google.com/file/d/1QHf4oQegt5GRyZ5_uLbnnUMkZ91oqeWW/view?usp=sharing"
           target="_blank"
           rel="noopener noreferrer"
-          className="py-2 px-2 border-b border-black/10 hover:bg-black/5 rounded-md transition-colors active:bg-black/10 text-black"
+          className="py-2 px-2 border-b border-black/10 hover:bg-black/5 rounded-md text-black transition-colors"
           onClick={handleClose}
         >
           Our Catalogue
         </a>
 
-       {/* Contact Us */}
+        {/* Contact Us */}
         <button
           id="contactus"
           onClick={handleClose}
-          className="block w-full text-left py-2 px-2 border-b border-black/10 hover:bg-black/5 rounded-md transition-colors active:bg-black/10 text-black  lg:text-base"
+          className="block w-full text-left py-2 px-2 border-b border-black/10 hover:bg-black/5 rounded-md text-black transition-colors"
         >
           Contact Us
         </button>
-
       </div>
     </div>
   )

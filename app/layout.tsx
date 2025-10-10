@@ -1,4 +1,4 @@
-// app/layout.tsx
+
 import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import "./globals.css"
@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   title: "Serene Towel - Innovations in Textile Art",
   description:
     "Serene Towel is a premium exporter of terry products, bath textiles, and made-ups. Comfort, elegance, and sustainable craftsmanship for global markets.",
-  icons: "/fav icon.png",
+  icons: "/fav icon1.png",
   openGraph: {
     title: "Serene Towel - Innovations in Textile Art",
     description:
