@@ -2,6 +2,7 @@
 
 import Link from "next/link"
 import Image from "next/image"
+import { useEffect } from "react"
 import { Plus_Jakarta_Sans } from "next/font/google"
 
 const plusJakarta = Plus_Jakarta_Sans({
@@ -10,15 +11,45 @@ const plusJakarta = Plus_Jakarta_Sans({
 })
 
 export default function ModernFooter() {
+  useEffect(() => {
+    // Enable smooth scrolling and trigger product opening
+    const links = document.querySelectorAll('a[href^="/#"], a[href^="#"]')
+
+    const handleClick = (e: any) => {
+      const href = e.currentTarget.getAttribute("href")
+      const targetId = href.replace("/#", "").replace("#", "")
+      const el = document.getElementById(targetId)
+
+      if (el) {
+        e.preventDefault()
+
+        // ✅ Update the hash so ProductsSection detects it
+        history.pushState(null, "", `#${targetId}`)
+
+        // ✅ Smooth scroll to section
+        el.scrollIntoView({ behavior: "smooth", block: "start" })
+
+        // ✅ Immediately trigger hashchange for React listener in ProductsSection
+        window.dispatchEvent(new HashChangeEvent("hashchange"))
+      }
+    }
+
+    links.forEach((link) => link.addEventListener("click", handleClick))
+    return () => links.forEach((link) => link.removeEventListener("click", handleClick))
+  }, [])
+
   return (
     <footer
       className={`${plusJakarta.className} bg-[hsl(0,0%,10%)] border-t border-[hsl(210,9%,46%)] py-8 sm:py-16 px-3 sm:px-6 lg:px-8 text-white`}
     >
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center md:text-left">
-          {/* Logo + Slogan */}
+          {/* Column 1: Logo + Slogan */}
           <div className="flex flex-col items-center md:items-start">
-            <Link href="/" className="flex items-center justify-center md:justify-start gap-2 mb-6">
+            <Link
+              href="/"
+              className="flex items-center justify-center md:justify-start gap-2 mb-6"
+            >
               <Image
                 src="/logo.png"
                 alt="Serene Towels Logo"
@@ -39,34 +70,24 @@ export default function ModernFooter() {
               Quick Links
             </h3>
             <div className="flex flex-col gap-2 mt-4">
-              <Link
-                href="/#towels"
-                className="px-4 py-1 rounded transition-colors w-fit font-semibold text-white hover:bg-white hover:text-[hsl(0,0%,10%)] hover:border-y hover:border-[hsl(195,100%,39%)] hover:border-x-0"
-              >
-                Towels
-              </Link>
-              <Link
-                href="/#bathrobes"
-                className="px-4 py-1 rounded transition-colors w-fit font-semibold text-white hover:bg-white hover:text-[hsl(0,0%,10%)] hover:border-y hover:border-[hsl(195,100%,39%)] hover:border-x-0"
-              >
-                Bathrobes
-              </Link>
-              <Link
-                href="/#bath-mats"
-                className="px-4 py-1 rounded transition-colors w-fit font-semibold text-white hover:bg-white hover:text-[hsl(0,0%,10%)] hover:border-y hover:border-[hsl(195,100%,39%)] hover:border-x-0"
-              >
-                Bath Mats
-              </Link>
-              <Link
-                href="/#made-ups"
-                className="px-4 py-1 rounded transition-colors w-fit font-semibold text-white hover:bg-white hover:text-[hsl(0,0%,10%)] hover:border-y hover:border-[hsl(195,100%,39%)] hover:border-x-0"
-              >
-                Made-ups
-              </Link>
+              {[
+                { href: "/#towels", label: "Towels" },
+                { href: "/#bathrobes", label: "Bathrobes" },
+                { href: "/#bath-mats", label: "Bath Mats" },
+                { href: "/#made-ups", label: "Made-ups" },
+              ].map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="px-4 py-1 rounded transition-colors w-fit font-semibold text-white hover:bg-white hover:text-[hsl(0,0%,10%)] hover:border-y hover:border-[hsl(195,100%,39%)] hover:border-x-0"
+                >
+                  {item.label}
+                </Link>
+              ))}
             </div>
           </div>
 
-          {/* Column 3: Reach Us Out & Address */}
+          {/* Column 3: Contact Info */}
           <div className="flex flex-col items-center md:items-start">
             <h3 className="text-lg font-bold mb-2 underline underline-offset-4">
               Reach Us Out
@@ -85,6 +106,7 @@ export default function ModernFooter() {
                 +92 355-2787-275
               </Link>
             </div>
+
             <h3 className="text-lg font-bold mb-2 underline underline-offset-4">
               Address
             </h3>

@@ -56,6 +56,14 @@ export default function DesktopNav() {
           >
             Our Catalogue
           </a>
+
+          <Link 
+          href="#ourvalues" 
+          className="text-black/75 hover:text-white transition-colors py-2 px-1 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/70 text-sm lg:text-base"
+          onMouseEnter={() => setActiveDropdown(null)}
+        >
+          Our Values
+        </Link>
           <button 
               id="contactus" 
               className="text-black/75 hover:text-white transition-colors py-2 px-1 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/70 text-sm lg:text-base"
