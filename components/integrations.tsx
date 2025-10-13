@@ -55,7 +55,7 @@ export default function OurValues() {
           </h2>
         </motion.div>
 
-        {/* Grid — 2 per row on mobile */}
+        {/* Grid */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-8">
           {values.map((value, index) => (
             <motion.div
@@ -67,21 +67,13 @@ export default function OurValues() {
               className="
                 flex flex-col items-center text-center justify-between
                 p-3 sm:p-5 lg:p-6 
-                bg-white rounded-xl shadow-lg 
-                aspect-[4/5] sm:aspect-[3/4] lg:aspect-auto
-                text-[2.7vw] sm:text-[1.2vw] lg:text-base
+                bg-white rounded-xl shadow-lg
+                text-[2.8vw] sm:text-[1.3vw] lg:text-base
+                min-h-[240px] sm:min-h-[260px] lg:min-h-[280px]
               "
             >
               {/* Icon */}
-              <div
-                className="
-                  mb-3 sm:mb-4 
-                  flex items-center justify-center 
-                  w-10 h-10 sm:w-14 sm:h-14 lg:w-16 lg:h-16 
-                  rounded-full bg-[#E0F4FA] shadow-md
-                  flex-shrink-0
-                "
-              >
+              <div className="mb-3 sm:mb-4 flex items-center justify-center w-10 h-10 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-full bg-[#E0F4FA] shadow-md flex-shrink-0">
                 <value.icon className="w-5 h-5 sm:w-7 sm:h-7 lg:w-8 lg:h-8 text-[#1997B7]" />
               </div>
 

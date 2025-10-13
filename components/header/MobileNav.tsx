@@ -106,6 +106,13 @@ export default function MobileNav({ isOpen, onClose }: MobileNavProps) {
         >
           Our Catalogue
         </a>
+        <Link
+          href="#ourvalues"
+          className="py-2 px-2 border-b border-black/10 hover:bg-black/5 rounded-md text-black transition-colors"
+          onClick={handleClose}
+        >
+          Our Values 
+        </Link>
 
         {/* Contact Us */}
         <button
