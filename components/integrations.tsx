@@ -65,11 +65,12 @@ export default function OurValues() {
               viewport={{ once: true }}
               transition={{ duration: 0.3, delay: index * 0.1 }}
               className="
-                flex flex-col items-center text-center justify-between
-                p-3 sm:p-5 lg:p-6 
-                bg-white rounded-xl shadow-lg
-                text-[2.8vw] sm:text-[1.3vw] lg:text-base
+                flex flex-col items-center justify-start text-center
+                p-4 sm:p-6 
+                bg-white rounded-xl shadow-md
+                text-[2.9vw] sm:text-[1.3vw] lg:text-base
                 min-h-[240px] sm:min-h-[260px] lg:min-h-[280px]
+                h-full
               "
             >
               {/* Icon */}
@@ -78,12 +79,12 @@ export default function OurValues() {
               </div>
 
               {/* Title */}
-              <h3 className="font-semibold mb-2 sm:mb-3 leading-tight text-center">
+              <h3 className="font-semibold mb-2 sm:mb-3 leading-tight text-center text-[3.2vw] sm:text-lg">
                 {value.title}
               </h3>
 
               {/* Description */}
-              <p className="text-gray-600 leading-snug sm:leading-relaxed text-center">
+              <p className="text-gray-600 leading-snug text-center text-[2.7vw] sm:text-sm lg:text-base px-1 sm:px-0">
                 {value.description}
               </p>
             </motion.div>
