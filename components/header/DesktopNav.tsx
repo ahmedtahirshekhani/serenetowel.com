@@ -42,31 +42,31 @@ export default function DesktopNav() {
 
         <Link 
           href="#aboutus" 
-          className="text-black/75 hover:text-white transition-colors py-2 px-1 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/70 text-sm lg:text-base"
+          className="text-black/75 hover:text-blue-400 transition-colors py-2 px-1 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/70 text-sm lg:text-base"
           onMouseEnter={() => setActiveDropdown(null)}
         >
           About Us
         </Link>
 
           <a
-            href="https://drive.google.com/file/d/1QHf4oQegt5GRyZ5_uLbnnUMkZ91oqeWW/view?usp=sharing"
+            href="/Serene_Towel_Catalogue_EU.pdf"
             target="_blank"
             rel="noopener noreferrer"
-             className="text-black/75 hover:text-white transition-colors py-2 px-1 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/70 text-sm lg:text-base"
+             className="text-black/75 hover:text-blue-400 transition-colors py-2 px-1 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/70 text-sm lg:text-base"
           >
             Our Catalogue
           </a>
 
           <Link 
           href="#ourvalues" 
-          className="text-black/75 hover:text-white transition-colors py-2 px-1 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/70 text-sm lg:text-base"
+          className="text-black/75 hover:text-blue-400 transition-colors py-2 px-1 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/70 text-sm lg:text-base"
           onMouseEnter={() => setActiveDropdown(null)}
         >
           Our Values
         </Link>
           <button 
               id="contactus" 
-              className="text-black/75 hover:text-white transition-colors py-2 px-1 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/70 text-sm lg:text-base"
+              className="text-black/75 hover:text-blue-400 transition-colors py-2 px-1 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/70 text-sm lg:text-base"
             >
               Contact Us
             </button>

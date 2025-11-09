@@ -98,7 +98,7 @@ export default function MobileNav({ isOpen, onClose }: MobileNavProps) {
 
         {/* Our Catalogue */}
         <a
-          href="https://drive.google.com/file/d/1QHf4oQegt5GRyZ5_uLbnnUMkZ91oqeWW/view?usp=sharing"
+          href="/Serene_Towel_Catalogue_EU.pdf"
           target="_blank"
           rel="noopener noreferrer"
           className="py-2 px-2 border-b border-black/10 hover:bg-black/5 rounded-md text-black transition-colors"
