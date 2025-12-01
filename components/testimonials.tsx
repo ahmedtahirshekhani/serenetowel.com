@@ -122,7 +122,7 @@ export default function ContactModal() {
                       href="tel:+923552787275"
                       className="text-[#a67c52] hover:underline"
                     >
-                      +92 355-2787-275
+                      +92 335-2787-275
                     </a>
                   </li>
                   <li>
@@ -131,7 +131,7 @@ export default function ContactModal() {
                       href="mailto:sales@serenetowel.com"
                       className="text-[#a67c52] hover:underline"
                     >
-                      sales@selenetowel.com
+                      sales@serenetowel.com
                     </a>
                   </li>
                 </ul>

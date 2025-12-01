@@ -97,13 +97,13 @@ export default function ModernFooter() {
                 href="mailto:sales@selenetowel.com"
                 className="text-[hsla(0, 0%, 100%, 1.00)] hover:text-[hsl(195,100%,49%)] font-medium underline underline-offset-2"
               >
-                sales@selenetowel.com
+                sales@serenetowel.com
               </Link>
               <Link
                 href="tel:+923552787275"
                 className="text-[hsla(0, 0%, 100%, 1.00)] hover:text-[hsl(195,100%,49%)] font-medium underline underline-offset-2"
               >
-                +92 355-2787-275
+                +92 335-2787-275
               </Link>
             </div>
 
