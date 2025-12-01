@@ -119,7 +119,7 @@ export default function ContactModal() {
                   <li>
                     <strong>📞 Phone:</strong>{" "}
                     <a
-                      href="tel:+923552787275"
+                      href="tel:+923352787275"
                       className="text-[#a67c52] hover:underline"
                     >
                       +92 335-2787-275

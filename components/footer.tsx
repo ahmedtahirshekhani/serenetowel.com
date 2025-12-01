@@ -94,13 +94,13 @@ export default function ModernFooter() {
             </h3>
             <div className="mt-4 mb-6 flex flex-col gap-2">
               <Link
-                href="mailto:sales@selenetowel.com"
+                href="mailto:sales@serenetowel.com"
                 className="text-[hsla(0, 0%, 100%, 1.00)] hover:text-[hsl(195,100%,49%)] font-medium underline underline-offset-2"
               >
                 sales@serenetowel.com
               </Link>
               <Link
-                href="tel:+923552787275"
+                href="tel:+923352787275"
                 className="text-[hsla(0, 0%, 100%, 1.00)] hover:text-[hsl(195,100%,49%)] font-medium underline underline-offset-2"
               >
                 +92 335-2787-275
